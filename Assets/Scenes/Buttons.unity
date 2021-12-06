@@ -1134,9 +1134,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _rectTransform: {fileID: 1282234481}
-  _animationButtonType: 1
+  _animationButtonType: 0
   _curveEase: 1
-  _duration: 0.6
+  _duration: 20
   _strength: 30
 --- !u!1 &1288215147
 GameObject:
@@ -1725,7 +1725,7 @@ MonoBehaviour:
   _rectTransform: {fileID: 1591942706}
   _animationButtonType: 1
   _curveEase: 1
-  _duration: 0.6
+  _duration: 20
   _strength: 30
 --- !u!1 &1628213505
 GameObject:
@@ -1856,8 +1856,9 @@ MonoBehaviour:
   _rectTransform: {fileID: 1803062607}
   _animationButtonType: 1
   _curveEase: 1
-  _duration: 0.6
+  _duration: 20
   _strength: 30
+  _width: 300
 --- !u!1 &1913927132
 GameObject:
   m_ObjectHideFlags: 0

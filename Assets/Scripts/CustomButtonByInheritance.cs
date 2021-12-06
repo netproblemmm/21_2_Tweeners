@@ -19,6 +19,23 @@ namespace _Tween.Scripts
         [SerializeField] private float _duration = 0.6f;
         [SerializeField] private float _strength = 30f;
 
+        private Coroutine _coroutine;
+
+        [ContextMenu(nameof(Play))]
+        public void Play()
+        {
+            Stop();
+            _coroutine = StartCoroutine(nameof(ActivateAnimation));
+        }
+
+        [ContextMenu(nameof(Stop))]
+        public void Stop()
+        {
+            if (_coroutine == null)
+                return;
+            StopCoroutine(_coroutine);
+            _coroutine = null;
+        }
 
         protected override void Awake()
         {

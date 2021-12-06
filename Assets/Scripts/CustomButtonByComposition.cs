@@ -18,13 +18,33 @@ namespace _Tween.Scripts
         [SerializeField] private float _duration = 0.6f;
         [SerializeField] private float _strength = 30f;
 
+        private const float MinValue = 300;
+        private const float MaxValue = 600;
+        [SerializeField, Range(MinValue, MaxValue)] private float _width;
+
+        private Coroutine _coroutine;
+
+        [ContextMenu(nameof(Play))]
+        public void Play()
+        {
+            Stop();
+            _coroutine = StartCoroutine(nameof(ActivateAnimation));
+        }
+
+        [ContextMenu(nameof(Stop))]
+        public void Stop()
+        {
+            if (_coroutine == null)
+                return;
+            StopCoroutine(_coroutine);
+            _coroutine = null;
+        }
 
         private void OnValidate() => InitComponents();
         private void Awake() => InitComponents();
 
         private void Start() => _button.onClick.AddListener(OnButtonClick);
         private void OnDestroy() => _button.onClick.RemoveAllListeners();
-
 
         private void InitComponents()
         {
@@ -37,7 +57,6 @@ namespace _Tween.Scripts
 
         private void InitRectTransform() =>
             _rectTransform ??= GetComponent<RectTransform>();
-
 
         private void OnButtonClick() =>
             ActivateAnimation();

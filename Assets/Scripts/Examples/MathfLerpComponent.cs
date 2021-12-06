@@ -13,7 +13,6 @@ namespace Tweeners.Scripts.Examples
 
         private Coroutine _coroutine;
 
-
         [ContextMenu(nameof(Play))]
         public void Play()
         {
